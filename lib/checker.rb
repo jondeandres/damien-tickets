@@ -23,11 +23,11 @@ class Checker
     proc do
       begin
         notice_and_exit if on_sale?
+        sleep 10
       rescue => e
         @logger.error(e.to_s)
         send_mail(e.to_s, subject: 'Error checking tickets!')
-      ensure
-        sleep 1
+        sleep 120
       end
     end
   end
